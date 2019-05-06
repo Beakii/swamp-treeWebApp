@@ -1,5 +1,6 @@
 ﻿var app = new Vue({
-    el: '#layout',
+    //el refers to the div ID that Vue will look for in the CSHTML file to start the Vue application
+    el: '#navBar',
     data: {
         drawerToggle: false,
         menuItems: [
