@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hamish\\source\\repos\\test\\PlantATreeCo\\PlantATreeCo.csproj": {}
+    "C:\\Users\\James\\Desktop\\Git Repos\\swamp-treeWebApp\\PlantATreeCo\\PlantATreeCo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hamish\\source\\repos\\test\\PlantATreeCo\\PlantATreeCo.csproj": {
+    "C:\\Users\\James\\Desktop\\Git Repos\\swamp-treeWebApp\\PlantATreeCo\\PlantATreeCo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hamish\\source\\repos\\test\\PlantATreeCo\\PlantATreeCo.csproj",
+        "projectUniqueName": "C:\\Users\\James\\Desktop\\Git Repos\\swamp-treeWebApp\\PlantATreeCo\\PlantATreeCo.csproj",
         "projectName": "PlantATreeCo",
-        "projectPath": "C:\\Users\\Hamish\\source\\repos\\test\\PlantATreeCo\\PlantATreeCo.csproj",
-        "packagesPath": "C:\\Users\\Hamish\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hamish\\source\\repos\\test\\PlantATreeCo\\obj\\",
+        "projectPath": "C:\\Users\\James\\Desktop\\Git Repos\\swamp-treeWebApp\\PlantATreeCo\\PlantATreeCo.csproj",
+        "packagesPath": "C:\\Users\\James\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\James\\Desktop\\Git Repos\\swamp-treeWebApp\\PlantATreeCo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hamish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\James\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
