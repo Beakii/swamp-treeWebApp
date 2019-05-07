@@ -31,7 +31,7 @@ namespace PlantATree
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("default", "{controller=Shop}/{action=Specials}/{id?}");
             });
         }
     }

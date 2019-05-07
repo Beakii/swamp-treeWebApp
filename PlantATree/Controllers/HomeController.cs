@@ -8,19 +8,17 @@ namespace PlantATree.Controllers
     public class HomeController : Controller
     {
         private readonly IUserRepository _IUserRepo;
-        private UserAccountDbm dbm;
+        private DBMng db;
 
         public HomeController(IUserRepository repo)
         {
             _IUserRepo = repo;
-            dbm = new UserAccountDbm();
+            db = new DBMng();
         }
 
         public ViewResult Index()
         {
-            //var model = _IUserRepo.GetAllUsers();
-
-            var model = dbm.GetAllUsers();
+            var model = _IUserRepo.GetAllUsers();
             return View(model);
         }
 
@@ -28,7 +26,7 @@ namespace PlantATree.Controllers
         {
             GetUserViewModel viewModel = new GetUserViewModel()
             {
-                UserAccount = dbm.GetUserInfo(id ?? 1)
+                UserAccount = db.GetUserInfo(id ?? 1)
             };
 
             //GetUserViewModel viewModel = new GetUserViewModel()
@@ -48,8 +46,7 @@ namespace PlantATree.Controllers
         [HttpPost]
         public RedirectToActionResult AddUser(UserAccount acc)
         {
-            //_IUserRepo.AddUser(acc);
-            dbm.AddNewUserAccount(acc);
+            _IUserRepo.AddUser(acc);
             return RedirectToAction("index");
         }
 
@@ -64,27 +61,6 @@ namespace PlantATree.Controllers
         {
             _IUserRepo.RemoveUser(id);
             return RedirectToAction("index");
-        }
-
-        [HttpGet]
-        public ViewResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public string Login(UserAccount acc)
-        {
-            bool loggedIn = dbm.UserLogin(acc);
-
-            if(loggedIn == true)
-            {
-                return "Logged in with Username/pass: "+acc.username+"/"+acc.password+" with a status of "+loggedIn;
-            }
-            else
-            {
-                return "Failed to login with Username/pass: " + acc.username + "/" + acc.password;
-            }
         }
 
     }
