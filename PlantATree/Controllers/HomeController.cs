@@ -31,11 +31,6 @@ namespace PlantATree.Controllers
                 UserAccount = dbm.GetUserInfo(id ?? 1)
             };
 
-            //GetUserViewModel viewModel = new GetUserViewModel()
-            //{
-            //    UserAccount = _IUserRepo.GetUser(id ?? 1)
-            //};
-
             return View(viewModel);
         }
 
@@ -48,7 +43,6 @@ namespace PlantATree.Controllers
         [HttpPost]
         public RedirectToActionResult AddUser(UserAccount acc)
         {
-            //_IUserRepo.AddUser(acc);
             dbm.AddNewUserAccount(acc);
             return RedirectToAction("index");
         }
