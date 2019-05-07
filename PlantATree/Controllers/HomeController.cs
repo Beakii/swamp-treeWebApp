@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PlantATree.Middleware.DatabaseManagement;
 using PlantATree.Models;
 using PlantATree.ViewModels;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PlantATree.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IUserRepository _IUserRepo;
+        private DBMng db;
 
         public HomeController(IUserRepository repo)
         {
             _IUserRepo = repo;
+            db = new DBMng();
         }
 
         public ViewResult Index()
@@ -29,8 +26,13 @@ namespace PlantATree.Controllers
         {
             GetUserViewModel viewModel = new GetUserViewModel()
             {
-                UserAccount = _IUserRepo.GetUser(id ?? 1)
+                UserAccount = db.GetUserInfo(id ?? 1)
             };
+
+            //GetUserViewModel viewModel = new GetUserViewModel()
+            //{
+            //    UserAccount = _IUserRepo.GetUser(id ?? 1)
+            //};
 
             return View(viewModel);
         }

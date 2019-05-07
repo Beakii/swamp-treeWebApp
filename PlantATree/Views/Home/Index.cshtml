@@ -12,6 +12,7 @@
                 <th>Fname</th>
                 <th>LName</th>
                 <th>Address</th>
+                <th>Email</th>
             </tr>
             @foreach (var user in Model)
             {
@@ -22,6 +23,7 @@
                     <td>@user.fname</td>
                     <td>@user.lname</td>
                     <td>@user.address</td>
+                    <td>@user.email</td>
                 </tr>
             }
         </table>

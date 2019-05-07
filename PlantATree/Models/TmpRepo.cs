@@ -13,9 +13,9 @@ namespace PlantATree.Models
         { 
             _accList = new List<UserAccount>()
             {
-                new UserAccount(){id = 1, username = "hamish", password = "password", fname  = "Hamish", lname = "Kendall", address = "ur mums home"},
-                new UserAccount(){id = 2, username = "jamie", password = "password", fname  = "Jamie", lname = "Stewart", address = "Under a bridge"},
-                new UserAccount(){id = 3, username = "test", password = "test", fname  = "Test", lname = "Account", address = "Joes anus"}
+                new UserAccount(){id = 1, username = "hamish", password = "password", fname  = "Hamish", lname = "Kendall", address = "ur mums home", email="email@email.com"},
+                new UserAccount(){id = 2, username = "jamie", password = "password", fname  = "Jamie", lname = "Stewart", address = "Under a bridge", email="email@email.com"},
+                new UserAccount(){id = 3, username = "test", password = "test", fname  = "Test", lname = "Account", address = "Test", email="email@email.com"}
             };
         }
 
