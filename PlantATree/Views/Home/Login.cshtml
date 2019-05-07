@@ -1,0 +1,16 @@
+﻿@model UserAccount
+@{
+    ViewBag.Title = "Add User";
+}
+
+<form asp-controller="Home" asp-action="Login">
+
+    <label asp-for="username"></label>
+    <input asp-for="username" />
+
+    <label asp-for="password"></label>
+    <input asp-for="password" />
+
+    <button type="submit">Login</button>
+
+</form>
