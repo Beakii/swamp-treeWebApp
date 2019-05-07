@@ -1,0 +1,13 @@
+﻿@model GetUserViewModel
+@{
+    ViewBag.Title = "Get User";
+}
+
+    <div>
+        <p>ID       : @Model.UserAccount.id</p>
+        <p>Username : @Model.UserAccount.username</p>
+        <p>Password : @Model.UserAccount.password</p>
+        <p>FName    : @Model.UserAccount.fname</p>
+        <p>Lname    : @Model.UserAccount.lname</p>
+        <p>Address  : @Model.UserAccount.address</p>
+    </div>

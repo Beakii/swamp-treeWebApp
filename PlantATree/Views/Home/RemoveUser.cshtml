@@ -1,0 +1,11 @@
+﻿@model UserAccount
+@{
+    ViewBag.Title = "Remove User";
+}
+
+<form asp-controller="Home" asp-action="RemoveUser">
+    <label asp-for="id"></label>
+    <input asp-for="id" />
+    <button type="submit">Remove</button>
+</form>
+

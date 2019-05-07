@@ -1,0 +1,28 @@
+﻿@model IEnumerable<UserAccount>
+@{
+    ViewBag.Title = "Home";
+}
+
+    <div>
+        <table border="1">
+            <tr>
+                <th>UserId</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Fname</th>
+                <th>LName</th>
+                <th>Address</th>
+            </tr>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.id</td>
+                    <td>@user.username</td>
+                    <td>@user.password</td>
+                    <td>@user.fname</td>
+                    <td>@user.lname</td>
+                    <td>@user.address</td>
+                </tr>
+            }
+        </table>
+    </div>
