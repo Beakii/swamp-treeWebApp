@@ -17,6 +17,11 @@ namespace PlantATree.Controllers
             _dbm = new PlantSearchDbm();
         }
 
+        public ViewResult ProductPage()
+        {
+            return View();
+        }
+
         public ViewResult Catalog()
         {
             return View();
