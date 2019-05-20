@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PlantATree.Middleware.DatabaseManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,14 @@ namespace PlantATree.Controllers
 {
     public class ShopController : Controller
     {
+
+        private PlantSearchDbm _dbm;
+
+        public ShopController()
+        {
+            _dbm = new PlantSearchDbm();
+        }
+
         public ViewResult Catalog()
         {
             return View();
@@ -15,7 +24,8 @@ namespace PlantATree.Controllers
 
         public ViewResult Specials()
         {
-            return View();
+
+            return View(_dbm.GetPlantInfo());
         }
     }
 }

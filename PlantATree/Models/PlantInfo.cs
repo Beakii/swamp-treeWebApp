@@ -12,5 +12,11 @@ namespace PlantATree.Models
         public string Description { get; set; }
         public string MaintReq { get; set; }
         public double Price { get; set; }
+        public Category Category { get; set; }
+        public SoilDrain SoilDrain { get; set; }
+        public Sun Sun { get; set; }
+        public Maint Maint { get; set; }
+        public int MaxHeight { get; set; }
+        public GrowthRate GrowthRate { get; set; }
     }
 }
