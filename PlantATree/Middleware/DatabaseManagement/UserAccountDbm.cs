@@ -40,13 +40,13 @@ namespace PlantATree.Middleware.DatabaseManagement
 
             UserAccount retAcc = new UserAccount()
             {
-                id = int.Parse(read["id"].ToString()),
-                username = read["username"].ToString(),
-                password = read["password"].ToString(),
-                fname = read["fname"].ToString(),
-                lname = read["lname"].ToString(),
-                address = read["address"].ToString(),
-                email = read["email"].ToString()
+                Id = int.Parse(read["id"].ToString()),
+                Username = read["username"].ToString(),
+                Password = read["password"].ToString(),
+                Fname = read["fname"].ToString(),
+                Lname = read["lname"].ToString(),
+                Address = read["address"].ToString(),
+                EMail = read["email"].ToString()
             };
 
             read.Close();
@@ -77,13 +77,13 @@ namespace PlantATree.Middleware.DatabaseManagement
             {
                 retList.Add(new UserAccount()
                 {
-                    id = int.Parse(read["id"].ToString()),
-                    username = read["username"].ToString(),
-                    password = read["password"].ToString(),
-                    fname = read["fname"].ToString(),
-                    lname = read["lname"].ToString(),
-                    address = read["address"].ToString(),
-                    email = read["email"].ToString()
+                    Id = int.Parse(read["id"].ToString()),
+                    Username = read["username"].ToString(),
+                    Password = read["password"].ToString(),
+                    Fname = read["fname"].ToString(),
+                    Lname = read["lname"].ToString(),
+                    Address = read["address"].ToString(),
+                    EMail = read["email"].ToString()
                 });
             }
 
@@ -106,7 +106,7 @@ namespace PlantATree.Middleware.DatabaseManagement
 
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "INSERT INTO Users(username, password, fname, lname, address, email)" +
-                "VALUES('"+ acc.username + "','"+ acc.password + "','"+ acc.fname + "','"+ acc.lname + "','"+ acc.address + "','"+ acc.email + "');";
+                "VALUES('"+ acc.Username + "','"+ acc.Password + "','"+ acc.Fname + "','"+ acc.Lname + "','"+ acc.Address + "','"+ acc.EMail + "');";
 
             cmd.ExecuteNonQuery();
 
@@ -125,7 +125,7 @@ namespace PlantATree.Middleware.DatabaseManagement
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Users WHERE username LIKE '" + acc.username + "' AND password = '"+acc.password+"';";
+            cmd.CommandText = "SELECT * FROM Users WHERE username LIKE '" + acc.Username + "' AND password = '"+acc.Password+"';";
 
             MySqlDataReader read = cmd.ExecuteReader();
 

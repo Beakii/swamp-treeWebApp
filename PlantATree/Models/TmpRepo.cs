@@ -13,9 +13,9 @@ namespace PlantATree.Models
         { 
             _accList = new List<UserAccount>()
             {
-                new UserAccount(){id = 1, username = "hamish", password = "password", fname  = "Hamish", lname = "Kendall", address = "ur mums home", email="email@email.com"},
-                new UserAccount(){id = 2, username = "jamie", password = "password", fname  = "Jamie", lname = "Stewart", address = "Under a bridge", email="email@email.com"},
-                new UserAccount(){id = 3, username = "test", password = "test", fname  = "Test", lname = "Account", address = "Test", email="email@email.com"}
+                new UserAccount(){Id = 1, Username = "hamish", Password = "password", Fname  = "Hamish", Lname = "Kendall", Address = "ur mums home", EMail="email@email.com"},
+                new UserAccount(){Id = 2, Username = "jamie", Password = "password", Fname  = "Jamie", Lname = "Stewart", Address = "Under a bridge", EMail="email@email.com"},
+                new UserAccount(){Id = 3, Username = "test", Password = "test", Fname  = "Test", Lname = "Account", Address = "Test", EMail="email@email.com"}
             };
         }
 
@@ -26,18 +26,18 @@ namespace PlantATree.Models
 
         public UserAccount GetUser(int id)
         {
-            return _accList.FirstOrDefault(e => e.id == id);
+            return _accList.FirstOrDefault(e => e.Id == id);
         }
 
         public UserAccount AddUser(UserAccount user)
         {
             try
             {
-                user.id = _accList.Max(e => e.id) + 1;
+                user.Id = _accList.Max(e => e.Id) + 1;
             }
             catch(InvalidOperationException)
             {
-                user.id = 1;
+                user.Id = 1;
             }
             
             _accList.Add(user);
@@ -46,7 +46,7 @@ namespace PlantATree.Models
 
         public IEnumerable<UserAccount> RemoveUser(int id)
         {
-            UserAccount acc = _accList.First<UserAccount>(e => e.id == id);
+            UserAccount acc = _accList.First<UserAccount>(e => e.Id == id);
             _accList.Remove(acc);
             return _accList;
         }

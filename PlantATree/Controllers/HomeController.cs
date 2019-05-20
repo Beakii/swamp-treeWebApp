@@ -73,11 +73,11 @@ namespace PlantATree.Controllers
 
             if(loggedIn == true)
             {
-                return "Logged in with Username/pass: "+acc.username+"/"+acc.password+" with a status of "+loggedIn;
+                return "Logged in with Username/pass: "+acc.Username+"/"+acc.Password+" with a status of "+loggedIn;
             }
             else
             {
-                return "Failed to login with Username/pass: " + acc.username + "/" + acc.password;
+                return "Failed to login with Username/pass: " + acc.Username + "/" + acc.Password;
             }
         }
 

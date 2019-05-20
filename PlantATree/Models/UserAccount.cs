@@ -7,12 +7,12 @@ namespace PlantATree.Models
 {
     public class UserAccount
     {
-        public int id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-        public string address { get; set; }
-        public string email { get; set; }
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Fname { get; set; }
+        public string Lname { get; set; }
+        public string Address { get; set; }
+        public string EMail { get; set; }
     }
 }
