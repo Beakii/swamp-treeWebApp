@@ -1,6 +1,7 @@
-# Swamp Web Application
+# PlantATree
+## Developed by Team Swamp
 
-Swamp is a web application for 
+PlantATree is a web application for TreeCo that is powered by ASP.net Core, Razor and Vue.JS.
 
 ## Development Roadmap
 
