@@ -1,25 +1,25 @@
-﻿@model PlantInfo
+﻿@model IEnumerable<PlantInfo>
 @{
-ViewBag.Title = "Catalog";
+    ViewBag.Title = "Catalog";
 }
 
-    <form asp-controller="Shop" asp-action="ProductPage" method="post">
-        <input asp-for="Name" class="form-control" placeholder="Username" />
-        <input type="submit" value="submit" />
-    </form>
-
     <div class="row justify-content-center">
+
+        @foreach (var p in Model)
+        {
+
         <div class="card m-3 p-0 shadow col-sm-5 col-md-4 col-lg-3">
 
-            <img src="~/img/placeholder.jpg" class="card-img" />
+
+            <img src="~/img/trees/@{@p.Name}.jpg" class="card-img" />
 
             <h3 class="card-title">
-                This is the title
+                @p.Name
             </h3>
 
             <div class="card-body">
                 <div class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nunc sed rhoncus ultricies. Sed lacinia consectetur risus vel consequat. Suspendisse eget metus neque. Pellentesque sed est vitae erat dictum iaculis et sit amet justo. In ac pharetra metus. Ut nec sapien dolor. Donec euismod lacus quis neque iaculis, non.
+                    @p.Description
                 </div>
             </div>
 
@@ -28,8 +28,14 @@ ViewBag.Title = "Catalog";
                     <button class="btn btn-success btn-block">BUY</button>
                 </li>
                 <li class="list-group-item-action">
-                    <button class="btn btn-block btn-outline-primary">VIEW</button>
+                    <form asp-action="ProductPage" asp-controller="Shop" method="post">
+                        <input type="hidden" name="Name" value="@p.Name" />
+                        <input type="submit" value="VIEW" class="btn btn-block btn-outline-primary" />
+                    </form>
                 </li>
             </ul>
         </div>
+
+        }
+
     </div>

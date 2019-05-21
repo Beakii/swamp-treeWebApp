@@ -32,18 +32,21 @@ namespace PlantATree.Controllers
                 return View("NoPlant");
             }
 
-            
         }
 
         public ViewResult Catalog()
         {
-            return View();
+            return View(_dbm.GetAllPlants());
         }
 
         public ViewResult Specials()
         {
+            return View(_dbm.GetPlantInfo("California Privet"));
+        }
 
-            return View(_dbm.GetPlantInfo("Plant 2"));
+        public ViewResult Cart()
+        {
+            return View();
         }
     }
 }

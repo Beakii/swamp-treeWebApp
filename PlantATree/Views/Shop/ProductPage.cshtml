@@ -1,17 +1,17 @@
 ﻿@model PlantInfo
 @{
     ViewBag.Title = "Product Page";
+    string PlantImage = "~/img/trees/" + Model.Name + ".jpg";
 }
 
     <div class="card col-sm-auto col-md-6 mt-3 mb-3 p-3 shadow-lg">
         <div class="">
-            <img src="~/img/Trees/@{@Model.Name}.jpg" class="img-fluid" alt="Responsive image">
+            <img src="~/img/trees/@{@Model.Name}.jpg" class="img-fluid" alt="Responsive image">
 
             <h1 class="card-title">@Model.Name</h1>
 
             <!--tabel for price max height and growth rate-->
             <table class="table">
-
                 <tbody>
                     <tr>
                         <th scope="row">Price</th>
@@ -24,7 +24,10 @@
                     <tr>
                         <th scope="row">Growth Rate</th>
                         <td> @Model.GrowthRate</td>
-
+                    </tr>
+                    <tr>
+                        <th scope="row">Plant Category</th>
+                        <td> @Model.Category</td>
                     </tr>
                 </tbody>
             </table>

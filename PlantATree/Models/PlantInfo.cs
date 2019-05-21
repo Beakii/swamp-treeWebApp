@@ -15,7 +15,6 @@ namespace PlantATree.Models
         public Category Category { get; set; }
         public SoilDrain SoilDrain { get; set; }
         public Sun Sun { get; set; }
-        public Maint Maint { get; set; }
         public int MaxHeight { get; set; }
         public GrowthRate GrowthRate { get; set; }
         public bool Valid { get; set; }

@@ -20,6 +20,48 @@ namespace PlantATree.Middleware.DatabaseManagement
             _timeout = "connection timeout=10";
         }
 
+        public List<PlantInfo> GetAllPlants()
+        {
+            MySqlConnection conn = new MySqlConnection(
+                _user +
+                _pass +
+                _server +
+                _database +
+                _timeout);
+
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Plants;";
+
+            MySqlDataReader read = cmd.ExecuteReader();
+
+            List<PlantInfo> retList = new List<PlantInfo>();
+
+            while (read.Read())
+            {
+                retList.Add(new PlantInfo()
+                {
+                    Id = read.GetInt32("id"),
+                    Name = read.GetString("name"),
+                    Description = read.GetString("desc"),
+                    MaintReq = read.GetString("maintReq"),
+                    Price = read.GetDouble("price"),
+                    Category = ConvertStrToCate(read.GetString("cate")),
+                    SoilDrain = ConvertStrToSoil(read.GetString("soilDrain")),
+                    Sun = ConvertStrToSun(read.GetString("sun")),
+                    MaxHeight = read.GetInt32("maxHeight"),
+                    GrowthRate = ConvertStrToGrowthRate(read.GetString("growthRate")),
+                    Valid = true
+                });
+            }
+
+            read.Close();
+            conn.Close();
+
+            return retList;
+        }
+
         public PlantInfo GetPlantInfo(String plantName)
         {
             MySqlConnection conn = new MySqlConnection(
@@ -55,7 +97,6 @@ namespace PlantATree.Middleware.DatabaseManagement
                     Category = ConvertStrToCate(read.GetString("cate")),
                     SoilDrain = ConvertStrToSoil(read.GetString("soilDrain")),
                     Sun = ConvertStrToSun(read.GetString("sun")),
-                    Maint = ConvertStrToMaint(read.GetString("maint")),
                     MaxHeight = read.GetInt32("maxHeight"),
                     GrowthRate = ConvertStrToGrowthRate(read.GetString("growthRate")),
                     Valid = true
@@ -92,11 +133,6 @@ namespace PlantATree.Middleware.DatabaseManagement
         private Sun ConvertStrToSun(String str)
         {
             return (Sun)Enum.Parse(typeof(Sun), str);
-        }
-
-        private Maint ConvertStrToMaint(String str)
-        {
-            return (Maint)Enum.Parse(typeof(Maint), str);
         }
 
         private GrowthRate ConvertStrToGrowthRate(String str)
