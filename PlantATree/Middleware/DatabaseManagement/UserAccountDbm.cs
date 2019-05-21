@@ -153,5 +153,25 @@ namespace PlantATree.Middleware.DatabaseManagement
             }
 
         }
+
+        public void AddTestimony(UserAccount acc, String rev)
+        {
+            MySqlConnection conn = new MySqlConnection(
+                _user +
+                _pass +
+                _server +
+                _database +
+                _timeout);
+
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO Reviews VALUES('Test','" + rev + "');";
+            //cmd.CommandText = "INSERT INTO Reviews VALUES('"+acc.Username+"','"+rev+"');";
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }
