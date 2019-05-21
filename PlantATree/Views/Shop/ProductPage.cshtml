@@ -53,9 +53,7 @@
 
             <button type="button" class="btn btn-success btn-block" onclick="alert('~/img/Trees/@{@Model.Name}.jpg')">Buy</button>
 
-            <a asp-action="Catalog" asp-controller="Shop" style="text-decoration : none">
-                <button type="button" class="btn btn-outline-danger btn-block">Return</button>
-            </a>
+            <button type="button" class="btn btn-outline-danger btn-block" onclick="location.href='@Url.Action("Catalog", "Shop")'" style="text-decoration : none">Return</button>
 
         </div>
     </div>

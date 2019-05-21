@@ -104,9 +104,16 @@ namespace PlantATree.Middleware.DatabaseManagement
 
             conn.Open();
 
+            string encPass = "";
+
+            foreach(char c in acc.Password)
+            {
+                encPass += (c + 1);
+            }
+
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "INSERT INTO Users(username, password, fname, lname, address, email)" +
-                "VALUES('"+ acc.Username + "','"+ acc.Password + "','"+ acc.Fname + "','"+ acc.Lname + "','"+ acc.Address + "','"+ acc.EMail + "');";
+                "VALUES('"+ acc.Username + "','"+ encPass + "','"+ acc.Fname + "','"+ acc.Lname + "','"+ acc.Address + "','"+ acc.EMail + "');";
 
             cmd.ExecuteNonQuery();
 
@@ -124,8 +131,15 @@ namespace PlantATree.Middleware.DatabaseManagement
 
             conn.Open();
 
+            string encPass = "";
+
+            foreach (char c in acc.Password)
+            {
+                encPass += (c + 1);
+            }
+
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Users WHERE username LIKE '" + acc.Username + "' AND password = '"+acc.Password+"';";
+            cmd.CommandText = "SELECT * FROM Users WHERE username LIKE '" + acc.Username + "' AND password = '"+ encPass + "';";
 
             MySqlDataReader read = cmd.ExecuteReader();
 
