@@ -36,22 +36,38 @@ namespace PlantATree.Middleware.DatabaseManagement
 
             MySqlDataReader read = cmd.ExecuteReader();
 
-            read.Read();
-
             PlantInfo retPlant = new PlantInfo()
             {
-                Id = read.GetInt32("id"),
-                Name = read.GetString("name"),
-                Description = read.GetString("desc"),
-                MaintReq = read.GetString("maintReq"),
-                Price = read.GetDouble("price"),
-                Category = ConvertStrToCate(read.GetString("cate")),
-                SoilDrain = ConvertStrToSoil(read.GetString("soilDrain")),
-                Sun = ConvertStrToSun(read.GetString("sun")),
-                Maint = ConvertStrToMaint(read.GetString("maint")),
-                MaxHeight = read.GetInt32("maxHeight"),
-                GrowthRate = ConvertStrToGrowthRate(read.GetString("growthRate"))
+                Valid = false
             };
+
+            read.Read();
+
+            try
+            {
+                retPlant = new PlantInfo()
+                {
+                    Id = read.GetInt32("id"),
+                    Name = read.GetString("name"),
+                    Description = read.GetString("desc"),
+                    MaintReq = read.GetString("maintReq"),
+                    Price = read.GetDouble("price"),
+                    Category = ConvertStrToCate(read.GetString("cate")),
+                    SoilDrain = ConvertStrToSoil(read.GetString("soilDrain")),
+                    Sun = ConvertStrToSun(read.GetString("sun")),
+                    Maint = ConvertStrToMaint(read.GetString("maint")),
+                    MaxHeight = read.GetInt32("maxHeight"),
+                    GrowthRate = ConvertStrToGrowthRate(read.GetString("growthRate")),
+                    Valid = true
+                };
+            }
+            catch (MySqlException)
+            {
+                retPlant = new PlantInfo()
+                {
+                    Valid = false
+                };
+            }
 
             read.Close();
             conn.Close();

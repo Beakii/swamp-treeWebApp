@@ -18,5 +18,6 @@ namespace PlantATree.Models
         public Maint Maint { get; set; }
         public int MaxHeight { get; set; }
         public GrowthRate GrowthRate { get; set; }
+        public bool Valid { get; set; }
     }
 }

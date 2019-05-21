@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Product Page";
+}
+
+    <div class="card col-sm-auto col-md-6 mt-3 mb-3 p-3 shadow-lg">
+        <div class="">
+            <img src="~/img/Trees/error.jpg" class="img-fluid" alt="Responsive image">
+
+            <h1 class="card-title">Error</h1>
+
+            <b>You have searched for a Non Existant plant!</b><br>
+
+
+            <!--Using unorder list for printing condition of place to be planted-->
+            <b>Conditions of Place to be planted:</b><br>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Sun:         </b>NoPlant   </li>
+                <li class="list-group-item"><b>Drainage:    </b>NoPlant  </li>
+            </ul>
+
+            <div class="card-body">
+                <b>Maintenace Requirements</b>
+                <p>
+                    NoPlant
+                </p>
+            </div>
+
+            <!--buy or return buittons-->
+
+            <button type="button" class="btn btn-success btn-block" onclick="alert('~/img/Trees/error.jpg')">Buy</button>
+
+            <a asp-action="Catalog" asp-controller="Shop" style="text-decoration : none">
+                <button type="button" class="btn btn-outline-danger btn-block">Return</button>
+            </a>
+
+        </div>
+    </div>

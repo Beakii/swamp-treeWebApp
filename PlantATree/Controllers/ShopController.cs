@@ -19,13 +19,20 @@ namespace PlantATree.Controllers
         }
 
         [HttpPost]
-        public ViewResult ProductPage(PlantInfo plant)
+        public ViewResult ProductPage(PlantInfo postPlant)
         {
-            //search plant
-            //add bool for valid plant
-            //return plant if true
-            //return error if false
-            return View(_dbm.GetPlantInfo(plant.Name));
+            PlantInfo plant = _dbm.GetPlantInfo(postPlant.Name);
+
+            if (plant.Valid)
+            {
+                return View(plant);
+            }
+            else
+            {
+                return View("NoPlant");
+            }
+
+            
         }
 
         public ViewResult Catalog()
