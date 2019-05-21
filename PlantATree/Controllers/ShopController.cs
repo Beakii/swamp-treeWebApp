@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlantATree.Middleware.DatabaseManagement;
+using PlantATree.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,14 @@ namespace PlantATree.Controllers
             _dbm = new PlantSearchDbm();
         }
 
-        public ViewResult ProductPage()
+        [HttpPost]
+        public ViewResult ProductPage(PlantInfo plant)
         {
-            return View();
+            //search plant
+            //add bool for valid plant
+            //return plant if true
+            //return error if false
+            return View(_dbm.GetPlantInfo(plant.Name));
         }
 
         public ViewResult Catalog()
@@ -30,7 +36,7 @@ namespace PlantATree.Controllers
         public ViewResult Specials()
         {
 
-            return View(_dbm.GetPlantInfo());
+            return View(_dbm.GetPlantInfo("Plant 2"));
         }
     }
 }

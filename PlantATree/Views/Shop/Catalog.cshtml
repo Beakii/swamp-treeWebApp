@@ -1,6 +1,12 @@
-﻿@{
+﻿@model PlantInfo
+@{
 ViewBag.Title = "Catalog";
 }
+
+    <form asp-controller="Shop" asp-action="ProductPage" method="post">
+        <input asp-for="Name" class="form-control" placeholder="Username" />
+        <input type="submit" value="submit" />
+    </form>
 
     <div class="row justify-content-center">
         <div class="card m-3 p-0 shadow col-sm-5 col-md-4 col-lg-3">

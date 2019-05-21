@@ -20,7 +20,7 @@ namespace PlantATree.Middleware.DatabaseManagement
             _timeout = "connection timeout=10";
         }
 
-        public PlantInfo GetPlantInfo()
+        public PlantInfo GetPlantInfo(String plantName)
         {
             MySqlConnection conn = new MySqlConnection(
                 _user +
@@ -32,7 +32,7 @@ namespace PlantATree.Middleware.DatabaseManagement
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Plants WHERE id = 2;";
+            cmd.CommandText = "SELECT * FROM Plants WHERE name LIKE '"+ plantName + "';";
 
             MySqlDataReader read = cmd.ExecuteReader();
 
