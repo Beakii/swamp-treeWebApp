@@ -99,4 +99,3 @@ C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\Specials.g.cshtml.cs
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\Login.g.cshtml.cs
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\Signup.g.cshtml.cs
-C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\ProductPage.g.cshtml.cs

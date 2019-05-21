@@ -32,7 +32,7 @@ namespace PlantATree.Middleware.DatabaseManagement
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Plants WHERE id = 2;";
+            cmd.CommandText = "SELECT * FROM Plants WHERE id = 3;";
 
             MySqlDataReader read = cmd.ExecuteReader();
 
