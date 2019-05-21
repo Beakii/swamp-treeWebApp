@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlantATree.Middleware.DatabaseManagement;
 using PlantATree.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using PlantATree.Middleware;
 
 namespace PlantATree.Controllers
 {
@@ -30,7 +28,6 @@ namespace PlantATree.Controllers
             return RedirectToAction("index", "Home");
         }
 
-
         [HttpGet]
         public ViewResult Signup()
         {
@@ -50,6 +47,8 @@ namespace PlantATree.Controllers
             return View();
         }
 
+        public const string SessionLoggedIn = "_Name";
+
         [HttpPost]
         public string Login(UserAccount acc)
         {
@@ -57,6 +56,7 @@ namespace PlantATree.Controllers
 
             if (loggedIn == true)
             {
+                
                 return "Logged in with Username/pass: " + acc.Username + "/" + acc.Password + " with a status of " + loggedIn;
             }
             else
@@ -64,5 +64,13 @@ namespace PlantATree.Controllers
                 return "Failed to login with Username/pass: " + acc.Username + "/" + acc.Password;
             }
         }
+
+        [HttpGet]
+        public ViewResult SessionCheck()
+        {
+            ViewBag.Logged = HttpContext.Session.GetString(SessionLoggedIn);
+            return View();
+        }
+
     }
 }

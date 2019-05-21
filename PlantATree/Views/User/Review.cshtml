@@ -1,4 +1,4 @@
-﻿@model UserAccount
+﻿@model Review
 @{
     ViewBag.Title = "Review";
 }
@@ -11,7 +11,7 @@
         <label style="color: white">Please leave a testimony!</label>
         <div class="row">
             <div class="col">
-                <textarea class="form-control" rows="5" style="resize: none"></textarea>
+                <textarea asp-for="UserReview" class="form-control" rows="5" style="resize: none"></textarea>
             </div>
         </div>
 

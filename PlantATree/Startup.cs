@@ -18,6 +18,13 @@ namespace PlantATree
         {
             services.AddMvc();
             services.AddSingleton<IUserRepository, TmpRepo>();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".PlantATree.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(15);
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,6 +36,7 @@ namespace PlantATree
             }
 
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller=Shop}/{action=Specials}/{id?}");

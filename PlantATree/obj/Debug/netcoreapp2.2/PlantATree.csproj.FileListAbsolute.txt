@@ -102,3 +102,6 @@ C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor
 C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\ProductPage.g.cshtml.cs
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\ProductPage.g.cshtml.cs
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\NoPlant.g.cshtml.cs
+C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\NoPlant.g.cshtml.cs
+C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\Review.g.cshtml.cs
+C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\SessionCheck.g.cshtml.cs
