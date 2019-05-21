@@ -1,0 +1,61 @@
+﻿@model PlantInfo
+@{
+    ViewBag.Title = "Product Page";
+}
+
+    <div class="card col-sm-auto col-md-6 mt-3 mb-3 p-3 shadow-lg">
+        <div class="">
+            <img src="~/img/Trees/@{@Model.Name}.jpg" class="img-fluid" alt="Responsive image">
+
+            <h1 class="card-title">@Model.Name</h1>
+
+            <!--tabel for price max height and growth rate-->
+            <table class="table">
+
+                <tbody>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td> $@Model.Price</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Height</th>
+                        <td> @Model.MaxHeight m</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Growth Rate</th>
+                        <td> @Model.GrowthRate</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <b>Discription</b><br>
+            <p>
+                @Model.Description
+            </p>
+
+            <!--Using unorder list for printing condition of place to be planted-->
+            <b>Conditions of Place to be planted:</b><br>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Sun:         </b>@Model.Sun   </li>
+                <li class="list-group-item"><b>Drainage:    </b>@Model.SoilDrain  </li>
+            </ul>
+
+            <div class="card-body">
+                <b>Maintenace Requirements</b>
+                <p>
+                    @Model.MaintReq
+                </p>
+            </div>
+
+            <!--buy or return buittons-->
+
+            <button type="button" class="btn btn-success btn-block" onclick="alert('~/img/Trees/@{@Model.Name}.jpg')">Buy</button>
+
+            <a asp-action="Catalog" asp-controller="Shop" style="text-decoration : none">
+                <button type="button" class="btn btn-outline-danger btn-block">Return</button>
+            </a>
+
+        </div>
+    </div>
