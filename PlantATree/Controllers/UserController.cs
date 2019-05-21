@@ -17,6 +17,14 @@ namespace PlantATree.Controllers
             _dbm = new UserAccountDbm();
         }
 
+        [HttpPost]
+        public RedirectToActionResult Review(UserAccount acc)
+        {
+            _dbm.AddTestimony(acc);
+            //return View();
+            return RedirectToAction("index", "Home");
+        }
+
 
         [HttpGet]
         public ViewResult Signup()
