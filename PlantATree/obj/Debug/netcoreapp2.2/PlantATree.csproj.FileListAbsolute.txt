@@ -24,9 +24,6 @@ C:\Users\Hamish\source\repos\PlantATree\PlantATree\bin\Debug\netcoreapp2.2\Plant
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\bin\Debug\netcoreapp2.2\PlantATree.Views.pdb
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\PlantATree.Views.pdb
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\PlantATree.csproj.CopyComplete
-C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Home\AddUser.g.cshtml.cs
-C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Home\GetUser.g.cshtml.cs
-C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Home\RemoveUser.g.cshtml.cs
 C:\Users\James\Desktop\Vue\DotNetCore\PlantATree\bin\Debug\netcoreapp2.2\PlantATree.deps.json
 C:\Users\James\Desktop\Vue\DotNetCore\PlantATree\bin\Debug\netcoreapp2.2\PlantATree.runtimeconfig.json
 C:\Users\James\Desktop\Vue\DotNetCore\PlantATree\bin\Debug\netcoreapp2.2\PlantATree.runtimeconfig.dev.json
@@ -94,7 +91,6 @@ C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\PlantATree.
 C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\PlantATree.dll
 C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\PlantATree.pdb
 C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\PlantATree.csproj.CopyComplete
-C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.g.cshtml.cs
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\Catalog.g.cshtml.cs
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\Specials.g.cshtml.cs
 C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\Login.g.cshtml.cs
@@ -105,3 +101,5 @@ C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor
 C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\Shop\NoPlant.g.cshtml.cs
 C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\Review.g.cshtml.cs
 C:\Users\Hamish\source\repos\test\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\SessionCheck.g.cshtml.cs
+C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\Review.g.cshtml.cs
+C:\Users\Hamish\source\repos\PlantATree\PlantATree\obj\Debug\netcoreapp2.2\Razor\Views\User\SessionCheck.g.cshtml.cs

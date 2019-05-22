@@ -35,13 +35,28 @@
                     <a class="nav-link" asp-action="catalog" asp-controller="shop">Shop</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="login" asp-controller="user">Login</a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="signup" asp-controller="user">Sign Up</a>
-                </li>
+                @if (Context.Session.GetString(SessionRef.Username) == null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="login" asp-controller="user">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="signup" asp-controller="user">Sign Up</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="SessionCheck" asp-controller="user">@Context.Session.GetString(SessionRef.Username)</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="logout" asp-controller="user">Logout</a>
+                    </li>
+                }
+
             </ul>
         </div>
     </nav>

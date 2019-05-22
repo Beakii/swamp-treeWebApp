@@ -13205,11 +13205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hamish\\source\\repos\\test\\PlantATree\\PlantATree.csproj",
+      "projectUniqueName": "C:\\Users\\Hamish\\source\\repos\\PlantATree\\PlantATree\\PlantATree.csproj",
       "projectName": "PlantATree",
-      "projectPath": "C:\\Users\\Hamish\\source\\repos\\test\\PlantATree\\PlantATree.csproj",
+      "projectPath": "C:\\Users\\Hamish\\source\\repos\\PlantATree\\PlantATree\\PlantATree.csproj",
       "packagesPath": "C:\\Users\\Hamish\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hamish\\source\\repos\\test\\PlantATree\\obj\\",
+      "outputPath": "C:\\Users\\Hamish\\source\\repos\\PlantATree\\PlantATree\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\ProgramData\\Xamarin\\NuGet\\",

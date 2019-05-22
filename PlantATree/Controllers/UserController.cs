@@ -47,28 +47,43 @@ namespace PlantATree.Controllers
             return View();
         }
 
-        public const string SessionLoggedIn = "_Name";
-
         [HttpPost]
-        public string Login(UserAccount acc)
+        public RedirectToActionResult Login(UserAccount acc)
         {
             bool loggedIn = _dbm.UserLogin(acc);
 
             if (loggedIn == true)
             {
-                
-                return "Logged in with Username/pass: " + acc.Username + "/" + acc.Password + " with a status of " + loggedIn;
+                HttpContext.Session.SetString(SessionRef.Username, acc.Username);
+                return RedirectToAction("specials", "Shop");
             }
             else
             {
-                return "Failed to login with Username/pass: " + acc.Username + "/" + acc.Password;
+                return RedirectToAction("Login", "User");
             }
+        }
+
+        public RedirectToActionResult Logout()
+        {
+            HttpContext.Session.Remove(SessionRef.Username);
+            return RedirectToAction("SessionCheck", "User");
         }
 
         [HttpGet]
         public ViewResult SessionCheck()
         {
-            ViewBag.Logged = HttpContext.Session.GetString(SessionLoggedIn);
+            string SessionUserName = HttpContext.Session.GetString(SessionRef.Username);
+
+            if(SessionUserName != null)
+            {
+                ViewBag.Logged = SessionUserName;
+            }
+            else
+            {
+                ViewBag.Logged = "Not logged in.";
+            }
+
+            
             return View();
         }
 

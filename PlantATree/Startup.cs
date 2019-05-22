@@ -17,7 +17,7 @@ namespace PlantATree
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IUserRepository, TmpRepo>();
+            //services.AddSingleton<IUserRepository, TmpRepo>();
 
             services.AddSession(options =>
             {
