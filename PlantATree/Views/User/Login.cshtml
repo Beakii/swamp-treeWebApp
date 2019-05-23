@@ -4,7 +4,7 @@
 }
 
 
-<div class="card col-auto" style="width: 40em">
+<div class="card col-auto mt-2" style="width: 40em">
     <div class="container p-3">
         <form asp-controller="User" asp-action="Login" method="post">
             <div class="row p-2">
@@ -15,7 +15,7 @@
 
             <div class="row p-2">
                 <div class="col">
-                    <input asp-for="Password" class="form-control" placeholder="Password" />
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
                 </div>
             </div>
 

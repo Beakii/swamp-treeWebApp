@@ -41,7 +41,11 @@ namespace PlantATree.Controllers
 
         public ViewResult Specials()
         {
-            return View(_dbm.GetPlantInfo("California Privet"));
+            List<PlantInfo> testing = new List<PlantInfo>();
+            testing.Add(_dbm.GetPlantInfo("Fuji Apple Tree"));
+            testing.Add(_dbm.GetPlantInfo("Wonderful Pomegranate"));
+            testing.Add(_dbm.GetPlantInfo("Little Giant Arborvitae"));
+            return View(testing);
         }
 
         public ViewResult Cart()

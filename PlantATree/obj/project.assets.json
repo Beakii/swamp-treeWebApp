@@ -13198,27 +13198,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hamish\\.nuget\\packages\\": {},
-    "C:\\ProgramData\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\James\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hamish\\source\\repos\\PlantATree\\PlantATree\\PlantATree.csproj",
+      "projectUniqueName": "C:\\Users\\James\\Desktop\\LocalCopy\\swamp-treeWebApp\\PlantATree\\PlantATree.csproj",
       "projectName": "PlantATree",
-      "projectPath": "C:\\Users\\Hamish\\source\\repos\\PlantATree\\PlantATree\\PlantATree.csproj",
-      "packagesPath": "C:\\Users\\Hamish\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hamish\\source\\repos\\PlantATree\\PlantATree\\obj\\",
+      "projectPath": "C:\\Users\\James\\Desktop\\LocalCopy\\swamp-treeWebApp\\PlantATree\\PlantATree.csproj",
+      "packagesPath": "C:\\Users\\James\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\James\\Desktop\\LocalCopy\\swamp-treeWebApp\\PlantATree\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\ProgramData\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hamish\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\James\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
