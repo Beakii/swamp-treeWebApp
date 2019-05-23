@@ -36,9 +36,17 @@ namespace PlantATree.Controllers
 
         }
 
+        [HttpGet]
         public ViewResult Catalog()
         {
             return View(_dbm.GetAllPlants());
+        }
+
+        [HttpPost]
+        public ViewResult Test(string type, string speed, string name)
+        {
+            string retString = type + " " + speed + " " + name;
+            return View("test", retString);
         }
 
         public ViewResult Specials()

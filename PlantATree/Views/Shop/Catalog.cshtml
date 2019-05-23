@@ -8,36 +8,36 @@
         <ul class="nav flex-column sticky-top">
             <li class="nav-item dropdown">
             <li>
-                <form class="form-inline">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink-tree" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <form class="form-inline" asp-action="Test" asp-controller="Shop">
+                    <a class="nav-link dropdown-toggle" href="#" id="type" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Category
                     </a>
 
                     <br />
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-tree">
-                        <a class="dropdown-item" href="#">Fruit Tree</a>
-                        <a class="dropdown-item" href="#">Hedge</a>
-                        <a class="dropdown-item" href="#">Evergreen</a>
-                        <a class="dropdown-item" href="#">NZ Native</a>
-                        <a class="dropdown-item" href="#">Palm Tree</a>
-                        <a class="dropdown-item" href="#">Hardwood</a>
-                    </div>
+                    <select name="Category" class="form-control">
+                        <option class="dropdown-item" value="Fruit Tree">Fruit Tree</option>
+                        <option class="dropdown-item" value="Hedge">Hedge</option>
+                        <option class="dropdown-item" value="mercedes">Evergreen</option>
+                        <option class="dropdown-item" value="audi">NZ Native</option>
+                        <option class="dropdown-item" value="audi">Palm Tree</option>
+                        <option class="dropdown-item" value="audi">Hardwood</option>
+                    </select>
 
                     <br />
 
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink-speed" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="speed" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Growth Rate
                     </a>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-speed">
-                        <a class="dropdown-item" href="#">Fast</a>
-                        <a class="dropdown-item" href="#">Average</a>
-                        <a class="dropdown-item" href="#">Slow</a>
-                    </div>
+                    <select name="GrowthRate" class="form-control">
+                        <option class="dropdown-item" value="Fast">Fast</option>
+                        <option class="dropdown-item" value="Average">Average</option>
+                        <option class="dropdown-item" value="Slow">Slow</option>
+                    </select>
 
 
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <input name="Name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Max Height</button>
                 </form>
             </li>
