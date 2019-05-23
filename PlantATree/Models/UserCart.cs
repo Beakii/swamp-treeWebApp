@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PlantATree.Middleware.DatabaseManagement;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,10 +11,12 @@ namespace PlantATree.Models
     {
 
         public Dictionary<String, int> cart;
+        public List<PlantInfo> plants;
 
         public UserCart()
         {
             cart = new Dictionary<String, int>();
+            plants = new PlantSearchDbm().GetAllPlants();
         }
 
         public void AddItem(String p)
@@ -52,5 +56,31 @@ namespace PlantATree.Models
             }
         }
 
+        public List<CartItem> GetCartItems()
+        {
+            List<CartItem> RetCart = new List<CartItem>();
+
+            CartItem TmpItem;
+
+            foreach (KeyValuePair<String, int> i in cart)
+            {
+                TmpItem = new CartItem();
+
+                foreach(PlantInfo p in plants)
+                {
+                    if (p.Name.Equals(i.Key))
+                    {
+                        TmpItem.Plant = p;
+                        TmpItem.Quantity = i.Value;
+                    }
+                }
+
+                if(!TmpItem.Equals(new CartItem())){
+                    RetCart.Add(TmpItem);
+                }
+            }
+
+            return RetCart;            
+        }
     }
 }

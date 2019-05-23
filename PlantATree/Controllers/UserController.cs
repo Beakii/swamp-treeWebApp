@@ -3,6 +3,7 @@ using PlantATree.Middleware.DatabaseManagement;
 using PlantATree.Models;
 using Microsoft.AspNetCore.Http;
 using PlantATree.Middleware;
+using Newtonsoft.Json;
 
 namespace PlantATree.Controllers
 {
@@ -52,7 +53,7 @@ namespace PlantATree.Controllers
         {
             bool loggedIn = _dbm.UserLogin(acc);
 
-            if (loggedIn == true)
+            if (loggedIn)
             {
                 HttpContext.Session.SetString(SessionRef.Username, acc.Username);
                 return RedirectToAction("specials", "Shop");
@@ -74,7 +75,7 @@ namespace PlantATree.Controllers
         {
             string SessionUserName = HttpContext.Session.GetString(SessionRef.Username);
 
-            if(SessionUserName != null)
+            if (SessionUserName != null)
             {
                 ViewBag.Logged = SessionUserName;
             }
@@ -82,7 +83,6 @@ namespace PlantATree.Controllers
             {
                 ViewBag.Logged = "Not logged in.";
             }
-
             
             return View();
         }

@@ -2,6 +2,7 @@
 using PlantATree.Middleware.DatabaseManagement;
 using PlantATree.Models;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace PlantATree.Controllers
 {
@@ -17,6 +18,13 @@ namespace PlantATree.Controllers
         public ViewResult Index()
         {
             var model = dbm.GetAllUsers();
+
+            UserCart tst = new UserCart();
+            tst.AddItem("California Privet");
+
+            HttpContext.Session.SetString(SessionRef.Cart, JsonConvert.SerializeObject(tst));
+
+            
             return View(model);
         }
     }

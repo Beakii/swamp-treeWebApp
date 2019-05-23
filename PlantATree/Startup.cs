@@ -22,7 +22,7 @@ namespace PlantATree
             services.AddSession(options =>
             {
                 options.Cookie.Name = ".PlantATree.Session";
-                options.IdleTimeout = TimeSpan.FromSeconds(15);
+                options.IdleTimeout = TimeSpan.FromSeconds(150);
                 options.Cookie.IsEssential = true;
             });
         }
