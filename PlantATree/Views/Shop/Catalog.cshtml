@@ -66,7 +66,10 @@
 
                     <ul class="list-group list-group-flush" style="list-style: none">
                         <li class="list-group-item-secondary">
-                            <button class="btn btn-success btn-block">BUY</button>
+                            <form asp-action="AddToCart" asp-controller="Shop" method="post">
+                                <input type="hidden" name="Name" value="@p.Name" />
+                                <input type="submit" value="BUY" class="btn btn-success btn-block" />
+                            </form>
                         </li>
                         <li class="list-group-item-action">
                             <form asp-action="ProductPage" asp-controller="Shop" method="post">

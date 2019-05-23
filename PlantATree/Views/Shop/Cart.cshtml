@@ -26,17 +26,13 @@
                     <td><p class=productName>@v.Plant.Name</p></td>
                     <td align="center"><p class="quantity">@v.Quantity</p></td>
                     <td align="center"><p class="price">$@v.Plant.Price</p></td>
-                    <td align="center"><button id="remove">Remove</button></td>
+                    <td align="center"><form asp-action="RemoveFromCart" asp-controller="Shop">
+                        <input type="hidden" name="Name" value="@v.Plant.Name" />
+                        <input type="submit" value="Remove" />
+                    </form></td>
                 </tr>
             }
         }
-        else
-        {
-            <p>EMPTY!</p>
-        }
-
-
-
 
     </table>
 

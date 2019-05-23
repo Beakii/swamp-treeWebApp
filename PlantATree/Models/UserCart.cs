@@ -22,14 +22,14 @@ namespace PlantATree.Models
         public void AddItem(String p)
         {
             string plantName = p;
-            int quantity = 1;
+            int Quantity = 1;
 
             if (cart.ContainsKey(plantName))
             {
-                cart.TryGetValue(plantName, out quantity);
+                cart.TryGetValue(plantName, out Quantity);
                 cart.Remove(plantName);
-                ++quantity;
-                cart.Add(plantName, quantity);
+                ++Quantity;
+                cart.Add(plantName, Quantity);
             }
             else
             {
@@ -40,17 +40,17 @@ namespace PlantATree.Models
         public void RemoveItem(String p)
         {
             string plantName = p;
-            int quantity = 1;
+            int Quantity = 1;
 
             if (cart.ContainsKey(plantName))
             {
-                cart.TryGetValue(plantName, out quantity);
+                cart.TryGetValue(plantName, out Quantity);
                 cart.Remove(plantName);
                 
-                if(quantity >= 2)
+                if(Quantity >= 2)
                 {
-                    --quantity;
-                    cart.Add(plantName, quantity);
+                    --Quantity;
+                    cart.Add(plantName, Quantity);
                 }
                 
             }

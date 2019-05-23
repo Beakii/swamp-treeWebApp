@@ -58,12 +58,45 @@ namespace PlantATree.Controllers
 
                 return View(c.GetCartItems());
             }
-            catch (ArgumentNullException)
-            {
-
-            }
+            catch (ArgumentNullException){}
 
             return View();
+        }
+
+        public RedirectToActionResult AddToCart(string Name)
+        {
+            UserCart cart;
+
+            try
+            {
+                cart = JsonConvert.DeserializeObject<UserCart>(HttpContext.Session.GetString(SessionRef.Cart));
+                cart.AddItem(Name);
+            }
+            catch(ArgumentNullException)
+            {
+                cart = new UserCart();
+                cart.AddItem(Name);
+            }
+
+            HttpContext.Session.SetString(SessionRef.Cart, JsonConvert.SerializeObject(cart));
+
+            return RedirectToAction("Cart", "Shop");
+        }
+
+        public RedirectToActionResult RemoveFromCart(string Name)
+        {
+            UserCart cart;
+
+            try
+            {
+                cart = JsonConvert.DeserializeObject<UserCart>(HttpContext.Session.GetString(SessionRef.Cart));
+                cart.RemoveItem(Name);
+                HttpContext.Session.SetString(SessionRef.Cart, JsonConvert.SerializeObject(cart));
+            }
+            catch (ArgumentNullException)
+            {}
+
+            return RedirectToAction("Cart", "Shop");
         }
     }
 }

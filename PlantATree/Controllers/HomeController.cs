@@ -18,12 +18,6 @@ namespace PlantATree.Controllers
         public ViewResult Index()
         {
             var model = dbm.GetAllUsers();
-
-            UserCart tst = new UserCart();
-            tst.AddItem("California Privet");
-
-            HttpContext.Session.SetString(SessionRef.Cart, JsonConvert.SerializeObject(tst));
-
             
             return View(model);
         }
