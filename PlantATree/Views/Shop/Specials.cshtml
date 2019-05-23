@@ -15,13 +15,13 @@
     <form>
         <div class="row" style="background-color: grey">
             <div class="col p-0 m-0">
-                <button class="btn btn-success btn-block">
+                <button asp-action="catalog" asp-controller="shop" class="btn btn-success btn-block">
                     Delivery
                 </button>
             </div>
 
             <div class="col p-0 m-0">
-                <button class="btn btn-secondary btn-block" style="color:white">
+                <button asp-action="catalog" asp-controller="shop" class="btn btn-secondary btn-block" style="color:white">
                     Pick-Up
                 </button>
             </div>
@@ -29,17 +29,32 @@
     </form>
 </nav>
 
-<div id="carouselExampleIndicators" class="carousel slide col-md-8 mt-2" data-ride="carousel">
+<div id="carousel" class="carousel slide col-md-8 mt-2" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
     </ol>
 
     <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <div class="card">
+                <img src="~/img/specials.jpg" />
+                <div class="card-body">
+                    <h2>
+                        RIGHT NOW!
+                    </h2>
+                    <p>
+                        SPECIAL DEALS CURRENTLY GOING ON! SWIPE LEFT OR RIGHT TO VIEW ITEMS ON SPECIAL
+                    </p>
+                </div>
+            </div>
+        </div>
+
         @foreach (var v in Model)
         {
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <div class="card">
                     <form id="@v.Name" asp-action="ProductPage" asp-controller="Shop" method="post">
                         <div class="card-img p-0 m-0">
@@ -66,7 +81,6 @@
                 </div>
             </div>
         }
-    </div>
 
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -77,5 +91,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+</div>
+
 
 
