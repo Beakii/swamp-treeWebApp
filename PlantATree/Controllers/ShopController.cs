@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PlantATree.Middleware.DatabaseManagement;
 using PlantATree.Models;
 using System;
@@ -50,6 +52,17 @@ namespace PlantATree.Controllers
 
         public ViewResult Cart()
         {
+            try
+            {
+                UserCart c = JsonConvert.DeserializeObject<UserCart>(HttpContext.Session.GetString(SessionRef.Cart));
+
+                return View(c.GetCartItems());
+            }
+            catch (ArgumentNullException)
+            {
+
+            }
+
             return View();
         }
     }

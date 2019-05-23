@@ -1,7 +1,6 @@
 ﻿@model PlantInfo
 @{
     ViewBag.Title = "Product Page";
-    string PlantImage = "~/img/trees/" + Model.Name + ".jpg";
 }
 
     <div class="card col-sm-auto col-md-6 mt-3 mb-3 p-3 shadow-lg">
@@ -54,7 +53,7 @@
 
             <!--buy or return buittons-->
 
-            <button type="button" class="btn btn-success btn-block" onclick="alert('~/img/Trees/@{@Model.Name}.jpg')">Buy</button>
+            <button type="button" class="btn btn-success btn-block" onclick="alert('Ima add this to the cart now')">Buy</button>
 
             <button type="button" class="btn btn-outline-danger btn-block" onclick="location.href='@Url.Action("Catalog", "Shop")'" style="text-decoration : none">Return</button>
 
