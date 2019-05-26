@@ -116,30 +116,7 @@ namespace PlantATree.Middleware.DatabaseManagement
             return retPlant;
         }
 
-
-        //*******************************************************
-        //For getting database enums and converting to PlantEnums
-        //*******************************************************
-        private Category ConvertStrToCate(String str)
-        {
-            return (Category) Enum.Parse(typeof(Category), str);
-        }
-
-        private SoilDrain ConvertStrToSoil(String str)
-        {
-            return (SoilDrain)Enum.Parse(typeof(SoilDrain), str);
-        }
-
-        private Sun ConvertStrToSun(String str)
-        {
-            return (Sun)Enum.Parse(typeof(Sun), str);
-        }
-
-        private GrowthRate ConvertStrToGrowthRate(String str)
-        {
-            return (GrowthRate)Enum.Parse(typeof(GrowthRate), str);
-        }
-        public List<PlantInfo> SearchPlants(String searchName, String searchCatolog, String searchGrowthRate)
+        public List<PlantInfo> SearchPlants(String category, String searchGrowthRate, String searchName)
         {
             MySqlConnection conn = new MySqlConnection(
                 _user +
@@ -151,7 +128,44 @@ namespace PlantATree.Middleware.DatabaseManagement
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Plants WHERE name LIKE '%" + searchName + "%' AND cate LIKE '%" + searchCatolog + "%' AND growthrate LIKE '%" + searchGrowthRate + "%';";
+
+            string SqlQuery = "SELECT * FROM Plants";
+
+            if (category != null || searchGrowthRate != null || searchName != null)
+            {
+                SqlQuery += " WHERE";
+            }
+
+            bool And1 = false, And2 = false;
+
+            if (category != null && !category.Equals(""))
+            {
+                SqlQuery += " cate = '" + category + "'";
+                And1 = true;
+            }
+
+            if (searchGrowthRate != null && !searchGrowthRate.Equals(""))
+            {
+                if (And1)
+                {
+                    SqlQuery += " AND";
+                }
+
+                SqlQuery += " growthrate = '" + searchGrowthRate + "'";
+                And2 = true;
+            }
+
+            if (searchName != null && !searchName.Equals(""))
+            {
+
+                if (And2)
+                {
+                    SqlQuery += " AND";
+                }
+                SqlQuery += " name LIKE '%" + searchName + "%'";
+            }
+
+            cmd.CommandText = SqlQuery;
 
             MySqlDataReader read = cmd.ExecuteReader();
 
@@ -180,7 +194,31 @@ namespace PlantATree.Middleware.DatabaseManagement
 
             return retList;
         }
+
+
+        //*******************************************************
+        //For getting database enums and converting to PlantEnums
+        //*******************************************************
+        private Category ConvertStrToCate(String str)
+        {
+            return (Category) Enum.Parse(typeof(Category), str);
+        }
+
+        private SoilDrain ConvertStrToSoil(String str)
+        {
+            return (SoilDrain)Enum.Parse(typeof(SoilDrain), str);
+        }
+
+        private Sun ConvertStrToSun(String str)
+        {
+            return (Sun)Enum.Parse(typeof(Sun), str);
+        }
+
+        private GrowthRate ConvertStrToGrowthRate(String str)
+        {
+            return (GrowthRate)Enum.Parse(typeof(GrowthRate), str);
+        }
+
     }
 
-    
 }

@@ -7,15 +7,13 @@
             <ul class="nav flex-column sticky-top">
                 <li class="nav-item dropdown">
                 <li>
-                    <form class="form-inline" asp-action="Test" asp-controller="Shop">
-                        <a class="nav-link dropdown-toggle" href="#" id="type" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category
-                        </a>
+                    <form class="form-inline" asp-action="Search" asp-controller="Shop">
 
+                        <label for="Category">Category</label>
                         <br />
-
                         <select name="Category" class="form-control">
-                            <option class="dropdown-item" value="Fruit Tree">Fruit Tree</option>
+                            <option class="dropdown-item" value="">Any</option>
+                            <option class="dropdown-item" value="Fruit">Fruit Tree</option>
                             <option class="dropdown-item" value="Hedge">Hedge</option>
                             <option class="dropdown-item" value="Evergreen">Evergreen</option>
                             <option class="dropdown-item" value="Native">NZ Native</option>
@@ -25,16 +23,16 @@
 
                         <br />
 
-                        <a class="nav-link dropdown-toggle" href="#" id="speed" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Growth Rate
-                        </a>
-
+                        <label for="GrowthRate">Growth Rate</label>
+                        <br />
                         <select name="GrowthRate" class="form-control">
+                            <option class="dropdown-item" value="">Any</option>
                             <option class="dropdown-item" value="Fast">Fast</option>
-                            <option class="dropdown-item" value="Average">Average</option>
+                            <option class="dropdown-item" value="Medium">Medium</option>
                             <option class="dropdown-item" value="Slow">Slow</option>
                         </select>
 
+                        <br />
 
                         <input name="Name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
@@ -64,12 +62,25 @@
                         </div>
 
                         <ul class="list-group list-group-flush" style="list-style: none">
-                            <li class="list-group-item-secondary">
-                                <form asp-action="AddToCart" asp-controller="Shop" method="post">
-                                    <input type="hidden" name="Name" value="@p.Name" />
-                                    <input type="submit" value="BUY" class="btn btn-success btn-block" />
-                                </form>
-                            </li>
+                            @if (Context.Session.GetString(SessionRef.Username) == null)
+                            {
+                                <li class="list-group-item-secondary">
+                                    <form method="post">
+                                        <input type="hidden" name="Name" value="@p.Name" />
+                                        <input value="Please login to buy" onclick="location.href='@Url.Action("Login", "User")'" class="btn btn-success btn-block" />
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="list-group-item-secondary">
+                                    <form asp-action="AddToCart" asp-controller="Shop" method="post">
+                                        <input type="hidden" name="Name" value="@p.Name" />
+                                        <input type="submit" value="BUY" class="btn btn-success btn-block" />
+                                    </form>
+                                </li>
+                            }
+
                             <li class="list-group-item-action">
                                 <form asp-action="ProductPage" asp-controller="Shop" method="post">
                                     <input type="hidden" name="Name" value="@p.Name" />

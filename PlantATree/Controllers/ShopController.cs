@@ -43,10 +43,9 @@ namespace PlantATree.Controllers
         }
 
         [HttpPost]
-        public ViewResult Test(string category, string growthrate, string name)
+        public ViewResult Search(string category, string growthrate, string name)
         {
-         
-            return View("test", _dbm.SearchPlants(name, category, growthrate));
+            return View(_dbm.SearchPlants(category, growthrate, name));
         }
 
         public ViewResult Specials()
