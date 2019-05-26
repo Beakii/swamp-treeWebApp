@@ -4,42 +4,55 @@
 }
 
 <div class="row ">
-    <div class="col-md-2 bg-dark">
-        <ul class="nav flex-column sticky-top">
-            <li class="nav-item dropdown">
-            <li>
-                <form class="form-inline" asp-action="Search" asp-controller="Shop">
+    <div class="col-md-2 bg-dark" style="z-index: 5; position: relative">
+        <nav class="navbar-nav nav sticky-top">
+            <form asp-action="Search" asp-controller="Shop">
+                <div class="row">
+                    <div class="col-md-6 pt-3" style="color:white">
+                        Category:
+                    </div>
 
-                    <label for="Category">Category</label>
-                    <br />
-                    <select name="Category" class="form-control">
-                        <option class="dropdown-item" value="">Any</option>
-                        <option class="dropdown-item" value="Fruit">Fruit Tree</option>
-                        <option class="dropdown-item" value="Hedge">Hedge</option>
-                        <option class="dropdown-item" value="Evergreen">Evergreen</option>
-                        <option class="dropdown-item" value="Native">NZ Native</option>
-                        <option class="dropdown-item" value="Palmtree">Palm Tree</option>
-                        <option class="dropdown-item" value="Hardwood">Hardwood</option>
-                    </select>
+                    <div class="col-md-6">
+                        <select name="Category" class="form-control mt-2">
+                            <option class="dropdown-item" value="">Any</option>
+                            <option class="dropdown-item" value="Fruit">Fruit Tree</option>
+                            <option class="dropdown-item" value="Hedge">Hedge</option>
+                            <option class="dropdown-item" value="Evergreen">Evergreen</option>
+                            <option class="dropdown-item" value="Native">NZ Native</option>
+                            <option class="dropdown-item" value="Palmtree">Palm Tree</option>
+                            <option class="dropdown-item" value="Hardwood">Hardwood</option>
+                        </select>
+                    </div>
+                </div>
 
-                    <br />
+                <div class="row">
+                    <div class="col-md-6 pt-3" style="color:white">
+                        Growth Rate:
+                    </div>
 
-                    <label for="GrowthRate">Growth Rate</label>
-                    <br />
-                    <select name="GrowthRate" class="form-control">
-                        <option class="dropdown-item" value="">Any</option>
-                        <option class="dropdown-item" value="Fast">Fast</option>
-                        <option class="dropdown-item" value="Medium">Medium</option>
-                        <option class="dropdown-item" value="Slow">Slow</option>
-                    </select>
+                    <div class="col-md-6">
+                        <select name="GrowthRate" class="form-control mt-2">
+                            <option class="dropdown-item" value="">Any</option>
+                            <option class="dropdown-item" value="Fast">Fast</option>
+                            <option class="dropdown-item" value="Medium">Medium</option>
+                            <option class="dropdown-item" value="Slow">Slow</option>
+                        </select>
+                    </div>
+                </div>
 
-                    <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <input name="Name" class="form-control mt-2" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                </div>
 
-                    <input name="Name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
-                </form>
-            </li>
-        </ul>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-outline-success mt-2 mb-2 btn-block" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </nav>
     </div>
 
     <div class="col-md-10">
