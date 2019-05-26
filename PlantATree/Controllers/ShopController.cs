@@ -43,10 +43,13 @@ namespace PlantATree.Controllers
         }
 
         [HttpPost]
-        public ViewResult Test(string type, string speed, string name)
+        public ViewResult Test(string Category, string GrowthRate, string Name)
         {
-            string retString = type + " " + speed + " " + name;
-            return View("test", retString);
+            string retString = Category + " " + GrowthRate + " " + Name;
+
+            PlantInfo plant = _dbm.GetPlantInfo("California Privet");
+
+            return View("test", plant);
         }
 
         public ViewResult Specials()

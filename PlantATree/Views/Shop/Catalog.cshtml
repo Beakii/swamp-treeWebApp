@@ -65,12 +65,26 @@
                     </div>
 
                     <ul class="list-group list-group-flush" style="list-style: none">
-                        <li class="list-group-item-secondary">
-                            <form asp-action="AddToCart" asp-controller="Shop" method="post">
-                                <input type="hidden" name="Name" value="@p.Name" />
-                                <input type="submit" value="BUY" class="btn btn-success btn-block" />
-                            </form>
-                        </li>
+
+                        @if (Context.Session.GetString(SessionRef.Username) == null)
+                        {
+                            <li class="list-group-item-secondary">
+                                <form method="post">
+                                    <input type="hidden" name="Name" value="@p.Name" />
+                                    <input value="Please login to buy" onclick="location.href='@Url.Action("Login", "User")'" class="btn btn-success btn-block" />
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="list-group-item-secondary">
+                                <form asp-action="AddToCart" asp-controller="Shop" method="post">
+                                    <input type="hidden" name="Name" value="@p.Name" />
+                                    <input type="submit" value="BUY" class="btn btn-success btn-block" />
+                                </form>
+                            </li>
+                        }
+
                         <li class="list-group-item-action">
                             <form asp-action="ProductPage" asp-controller="Shop" method="post">
                                 <input type="hidden" name="Name" value="@p.Name" />

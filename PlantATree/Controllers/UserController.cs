@@ -56,7 +56,7 @@ namespace PlantATree.Controllers
             if (loggedIn)
             {
                 HttpContext.Session.SetString(SessionRef.Username, acc.Username);
-                return RedirectToAction("specials", "Shop");
+                return RedirectToAction("Catalog", "Shop");
             }
             else
             {
@@ -67,6 +67,7 @@ namespace PlantATree.Controllers
         public RedirectToActionResult Logout()
         {
             HttpContext.Session.Remove(SessionRef.Username);
+            HttpContext.Session.Remove(SessionRef.Cart);
             return RedirectToAction("SessionCheck", "User");
         }
 
