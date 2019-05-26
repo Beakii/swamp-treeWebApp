@@ -53,7 +53,19 @@
 
             <!--buy or return buittons-->
 
-            <button type="button" class="btn btn-success btn-block" onclick="alert('Ima add this to the cart now')">Buy</button>
+            @if (Context.Session.GetString(SessionRef.Username) == null)
+            {
+                <button type="button" class="btn btn-success btn-block" onclick="location.href='@Url.Action("login", "user")'">Login to buy</button>
+            }
+            else
+            {
+                <form asp-action="AddToCart" asp-controller="Shop" method="post">
+                    <input type="hidden" name="Name" value="@Model.Name" />
+                    <input type="submit" value="BUY" class="btn btn-success btn-block" />
+                </form>
+            }
+
+
 
             <button type="button" class="btn btn-outline-danger btn-block" onclick="location.href='@Url.Action("Catalog", "Shop")'" style="text-decoration : none">Return</button>
 

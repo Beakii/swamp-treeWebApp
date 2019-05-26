@@ -40,10 +40,14 @@
 
                     <li class="nav-item">
                         <a class="nav-link" asp-action="signup" asp-controller="user">Sign Up</a>
-                    </li>
+</li>
                 }
                 else
                 {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="cart" asp-controller="shop">Cart</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" asp-action="SessionCheck" asp-controller="user">@Context.Session.GetString(SessionRef.Username)</a>
                     </li>
