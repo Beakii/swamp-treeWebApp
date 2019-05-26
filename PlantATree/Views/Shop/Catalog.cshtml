@@ -1,0 +1,106 @@
+﻿@model IEnumerable<PlantInfo>
+@{
+    ViewBag.Title = "Catalog";
+}
+
+<div class="row ">
+    <div class="col-md-2 bg-dark" style="z-index: 5; position: relative">
+        <nav class="navbar-nav nav sticky-top">
+            <form asp-action="Search" asp-controller="Shop">
+                <div class="row">
+                    <div class="col-md-6 pt-3" style="color:white">
+                        Category:
+                    </div>
+
+                    <div class="col-md-6">
+                        <select name="Category" class="form-control mt-2">
+                            <option class="dropdown-item" value="">Any</option>
+                            <option class="dropdown-item" value="Fruit">Fruit Tree</option>
+                            <option class="dropdown-item" value="Hedge">Hedge</option>
+                            <option class="dropdown-item" value="Evergreen">Evergreen</option>
+                            <option class="dropdown-item" value="Native">NZ Native</option>
+                            <option class="dropdown-item" value="Palmtree">Palm Tree</option>
+                            <option class="dropdown-item" value="Hardwood">Hardwood</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 pt-3" style="color:white">
+                        Growth Rate:
+                    </div>
+
+                    <div class="col-md-6">
+                        <select name="GrowthRate" class="form-control mt-2">
+                            <option class="dropdown-item" value="">Any</option>
+                            <option class="dropdown-item" value="Fast">Fast</option>
+                            <option class="dropdown-item" value="Medium">Medium</option>
+                            <option class="dropdown-item" value="Slow">Slow</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input name="Name" class="form-control mt-2" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-outline-success mt-2 mb-2 btn-block" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </nav>
+    </div>
+
+    <div class="col-md-10">
+        <div class="row justify-content-center">
+            @foreach (var p in Model)
+            {
+                <div class="card m-3 p-0 shadow col-sm-5 col-md-4 col-lg-3">
+
+                    <img src="~/img/trees/@{@p.Name}.jpg" class="card-img" />
+
+                    <h3 class="card-title">@p.Name</h3>
+
+                    <div class="card-body">
+                        <div class="card-text">
+                            @p.Description
+                        </div>
+                    </div>
+
+                    <ul class="list-group list-group-flush" style="list-style: none">
+                        @if (Context.Session.GetString(SessionRef.Username) == null)
+                        {
+                            <li class="list-group-item-secondary">
+                                <form method="post">
+                                    <input type="hidden" name="Name" value="@p.Name" />
+                                    <input value="Please login to buy" onclick="location.href='@Url.Action("Login", "User")'" class="btn btn-success btn-block" />
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="list-group-item-secondary">
+                                <form asp-action="AddToCart" asp-controller="Shop" method="post">
+                                    <input type="hidden" name="Name" value="@p.Name" />
+                                    <input type="submit" value="BUY" class="btn btn-success btn-block" />
+                                </form>
+                            </li>
+                        }
+
+                        <li class="list-group-item-action">
+                            <form asp-action="ProductPage" asp-controller="Shop" method="post">
+                                <input type="hidden" name="Name" value="@p.Name" />
+                                <input type="submit" value="VIEW" class="btn btn-block btn-outline-primary" />
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

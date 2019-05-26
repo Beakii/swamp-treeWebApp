@@ -1,0 +1,97 @@
+﻿@model IEnumerable<PlantInfo>
+@{
+    ViewBag.Title = "Specials";
+}
+
+<nav class="sticky-top" style="z-index:0; position: relative">
+    <div class="row" style="background-color: darkgrey">
+        <div class="col m-0 p-0">
+            <h4>
+                START YOUR ORDER
+            </h4>
+        </div>
+    </div>
+
+    <form>
+        <div class="row" style="background-color: grey">
+            <div class="col p-0 m-0">
+                <button asp-action="catalog" asp-controller="shop" class="btn btn-success btn-block">
+                    Delivery
+                </button>
+            </div>
+
+            <div class="col p-0 m-0">
+                <button asp-action="catalog" asp-controller="shop" class="btn btn-secondary btn-block" style="color:white">
+                    Pick-Up
+                </button>
+            </div>
+        </div>
+    </form>
+</nav>
+
+<div id="carousel" class="carousel slide col-md-8 mt-2" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <div class="card">
+                <img src="~/img/specials.jpg" />
+                <div class="card-body">
+                    <h2>
+                        RIGHT NOW!
+                    </h2>
+                    <p>
+                        SPECIAL DEALS CURRENTLY GOING ON! SWIPE LEFT OR RIGHT TO VIEW ITEMS ON SPECIAL
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        @foreach (var v in Model)
+        {
+            <div class="carousel-item">
+                <div class="card">
+                    <form id="@v.Name" asp-action="ProductPage" asp-controller="Shop" method="post">
+                        <div class="card-img p-0 m-0">
+                            <input type="hidden" name="Name" value="@v.Name" />
+                            <a href="javascript: void()" onclick="document.getElementById('@{@v.Name}').submit();">
+                                <img src="~/img/trees/@{@v.Name}.jpg" class="img-fluid" />
+                            </a>
+                        </div>
+                    </form>
+
+                    <div class="card-title">
+                        <h2>
+                            @v.Name
+                        </h2>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p>
+                                @v.Description
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+

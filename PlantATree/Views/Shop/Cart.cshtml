@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CartItem>
+@{
+    ViewBag.Title = "Cart";
+}
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
+<h1> Shopping Cart</h1><br>
+
+<div class="cart">
+    
+    <table id ="cartTable" border="0" style="width:50%" align="center" cellpadding=5>
+        <tr>            
+                <th class="text-center" colspan="2" width="10%">Product</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Price</th>
+                <th class="text-center"></th>            
+        </tr>
+
+        @if (Model != null)
+        {
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td align="center">
+                        <img src="~/img/trees/@{@v.Plant.Name}.jpg" style="width:100px;height:100px;" class="itemImg" />'
+                    </td>
+                    <td><p class=productName>@v.Plant.Name</p></td>
+                    <td align="center"><p class="quantity">@v.Quantity</p></td>
+                    <td align="center"><p class="price">$@v.Plant.Price</p></td>
+                    <td align="center"><form asp-action="RemoveFromCart" asp-controller="Shop">
+                        <input type="hidden" name="Name" value="@v.Plant.Name" />
+                         <button type="submit" style="border: 0; background: transparent">
+                            <img src="~/img/delete.png" width="50" height="50" alt="submit" />
+                        </button>
+                    </form></td>
+                </tr>
+            }
+        }
+
+    </table>
+
+</div>
+
+<div class="total">
+
+
+</div>
+

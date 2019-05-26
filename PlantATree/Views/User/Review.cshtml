@@ -1,0 +1,30 @@
+﻿@model Review
+@{
+    ViewBag.Title = "Review";
+}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+<div class="card col-auto mt-3" style="width: 40em; background-color: dimgray">
+    <form class="form-group" asp-controller="User" asp-action="Review" method="post">
+        <label style="color: white">Please leave a testimony!</label>
+        <div class="row">
+            <div class="col">
+                <textarea asp-for="UserReview" class="form-control" rows="5" style="resize: none"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type="submit" class="btn btn-success btn-block mt-2" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type="submit" value="Proceed" class="btn btn-outline-danger btn-block mt-2" />
+            </div>
+        </div>
+    </form>
+</div>

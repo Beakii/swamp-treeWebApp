@@ -1,0 +1,73 @@
+﻿@model PlantInfo
+@{
+    ViewBag.Title = "Product Page";
+}
+
+    <div class="card col-sm-auto col-md-6 mt-3 mb-3 p-3 shadow-lg">
+        <div class="">
+            <img src="~/img/trees/@{@Model.Name}.jpg" class="img-fluid" alt="Responsive image">
+
+            <h1 class="card-title">@Model.Name</h1>
+
+            <!--tabel for price max height and growth rate-->
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td> $@Model.Price</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Height</th>
+                        <td> @Model.MaxHeight m</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Growth Rate</th>
+                        <td> @Model.GrowthRate</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Plant Category</th>
+                        <td> @Model.Category</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <b>Discription</b><br>
+            <p>
+                @Model.Description
+            </p>
+
+            <!--Using unorder list for printing condition of place to be planted-->
+            <b>Conditions of Place to be planted:</b><br>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Sun:         </b>@Model.Sun   </li>
+                <li class="list-group-item"><b>Drainage:    </b>@Model.SoilDrain  </li>
+            </ul>
+
+            <div class="card-body">
+                <b>Maintenace Requirements</b>
+                <p>
+                    @Model.MaintReq
+                </p>
+            </div>
+
+            <!--buy or return buittons-->
+
+            @if (Context.Session.GetString(SessionRef.Username) == null)
+            {
+                <button type="button" class="btn btn-success btn-block" onclick="location.href='@Url.Action("login", "user")'">Login to buy</button>
+            }
+            else
+            {
+                <form asp-action="AddToCart" asp-controller="Shop" method="post">
+                    <input type="hidden" name="Name" value="@Model.Name" />
+                    <input type="submit" value="BUY" class="btn btn-success btn-block" />
+                </form>
+            }
+
+
+
+            <button type="button" class="btn btn-outline-danger btn-block" onclick="location.href='@Url.Action("Catalog", "Shop")'" style="text-decoration : none">Return</button>
+
+        </div>
+    </div>
