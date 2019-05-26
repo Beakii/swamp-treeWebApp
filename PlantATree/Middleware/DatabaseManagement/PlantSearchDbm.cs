@@ -139,6 +139,48 @@ namespace PlantATree.Middleware.DatabaseManagement
         {
             return (GrowthRate)Enum.Parse(typeof(GrowthRate), str);
         }
+        public List<PlantInfo> SearchPlants(String searchName, String searchCatolog, String searchGrowthRate)
+        {
+            MySqlConnection conn = new MySqlConnection(
+                _user +
+                _pass +
+                _server +
+                _database +
+                _timeout);
 
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Plants WHERE name LIKE '%" + searchName + "%' AND cate LIKE '%" + searchCatolog + "%' AND growthrate LIKE '%" + searchGrowthRate + "%';";
+
+            MySqlDataReader read = cmd.ExecuteReader();
+
+            List<PlantInfo> retList = new List<PlantInfo>();
+
+            while (read.Read())
+            {
+                retList.Add(new PlantInfo()
+                {
+                    Id = read.GetInt32("id"),
+                    Name = read.GetString("name"),
+                    Description = read.GetString("desc"),
+                    MaintReq = read.GetString("maintReq"),
+                    Price = read.GetDouble("price"),
+                    Category = ConvertStrToCate(read.GetString("cate")),
+                    SoilDrain = ConvertStrToSoil(read.GetString("soilDrain")),
+                    Sun = ConvertStrToSun(read.GetString("sun")),
+                    MaxHeight = read.GetInt32("maxHeight"),
+                    GrowthRate = ConvertStrToGrowthRate(read.GetString("growthRate")),
+                    Valid = true
+                });
+            }
+
+            read.Close();
+            conn.Close();
+
+            return retList;
+        }
     }
+
+    
 }
